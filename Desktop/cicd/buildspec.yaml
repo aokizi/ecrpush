@@ -20,8 +20,10 @@ phases:
       - docker tag ${ECR_REPO_NAME}:latest ${ECR_IMAGE_URI}
       - docker push ${ECR_IMAGE_URI}
 
-      - printf '[{"name":"eth1-container","imageUri":"%s"}]' ${ECR_IMAGE_URI} > imagedefinitions.json
+      - printf '[{"name":"eth1-container","imageUri":"%s"}]' ${ECR_IMAGE_URI} > imageDetail.json
         
 artifacts:
   files:
-    - imagedefinitions.json
+    - appspec.yaml
+    - taskdef.json
+    - mageDetail.json
